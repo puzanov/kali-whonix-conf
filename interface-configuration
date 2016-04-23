@@ -1,0 +1,16 @@
+Kali VM network need to be virtual with "Whonix" name
+
+/etc/network/interfaces
+iface eth0 inet static
+      address 10.152.152.11
+      netmask 255.255.192.0
+      gateway 10.152.152.10
+
+Replace the entire contents of /etc/resolv.conf with the following:
+nameserver 10.152.152.10
+
+Bounce the interface inside Kali:
+sudo ifdown eth0
+sudo ifup eth0
+
+If the eth0 interface was down, than up it, make it down and up it up for working
